@@ -1,0 +1,7 @@
+{
+  "name": "challenge - backend",
+  "description": "Backend application for AllianzGI challenge",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
