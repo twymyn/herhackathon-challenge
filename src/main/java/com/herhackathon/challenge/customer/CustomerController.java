@@ -26,9 +26,15 @@ public class CustomerController {
 
     @GetMapping("/customers/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable("id") Long id) {
-        Optional<Customer> customer = customerRepository.findById(id);
-        return customer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-
+        try {
+            Optional<Customer> customer = customerRepository.findById(id);
+            if (customer.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(customer.get());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @PostMapping("/customers")
