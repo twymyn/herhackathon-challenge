@@ -1,0 +1,22 @@
+###
+
+GET {{baseUrl}}/example
+
+###
+
+POST {{baseUrl}}/customers?firstName=Boopy&lastName=Bupsilon
+Content-Type: application/json
+
+{
+  "firstName": "Bupinia",
+  "lastName": "Smuchinia"
+}
+
+###
+
+GET {{baseUrl}}/login/oauth2/code/commerz
+
+###
+
+GET {{baseUrl}}/banks/commerz/login
+

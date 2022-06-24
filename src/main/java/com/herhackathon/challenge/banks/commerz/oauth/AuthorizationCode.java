@@ -1,11 +1,9 @@
-package com.herhackathon.challenge.banks.commerz.securities;
+package com.herhackathon.challenge.banks.commerz.oauth;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 class AuthorizationCode {
     private String code;
