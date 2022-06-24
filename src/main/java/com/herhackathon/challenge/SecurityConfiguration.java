@@ -53,8 +53,7 @@ public class SecurityConfiguration {
         return authorizedClientManager;
     }
 
-    @Bean
-    public WebClient.Builder webClientBuilder() {
+    public WebClient.Builder getBasicWebClientBuilder() {
         HttpClient httpClient = null;
         try {
             SslContext sslContext = SslContextBuilder

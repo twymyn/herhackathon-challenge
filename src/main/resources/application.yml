@@ -15,3 +15,10 @@ spring:
           commerz:
             authorization-uri: https://api-sandbox.commerzbank.com/auth/realms/sandbox/protocol/openid-connect/auth
             token-uri: https://api-sandbox.commerzbank.com/auth/realms/sandbox/protocol/openid-connect/token
+
+commerz:
+  api:
+    base-url: https://api-sandbox.commerzbank.com/securities-api/v3
+    path:
+      security-accounts: /security-accounts
+      assets: /assets
