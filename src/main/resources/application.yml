@@ -2,11 +2,16 @@ server:
   port: ${PORT:5000}
 
 spring:
-  datasource:
-    url: ${JDBC_DATABASE_URL:}
-    hikari:
-      connection-timeout: 10000
-      maximum-pool-size: 10
-  jpa:
-    hibernate:
-      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          commerz:
+            authorization-grant-type: authorization_code
+            client-id: ${COMMERZ_CLIENT_ID:aab6de52-86ad-4734-8761-779d1fa5deb4}
+            client-secret: ${COMMERZ_CLIENT_SECRET:f39bc34f-4887-41cd-8872-ff3332190b43}
+            redirect-uri: "{baseUrl}/login/oauth2/callback/commerz"
+        provider:
+          commerz:
+            authorization-uri: https://api-sandbox.commerzbank.com/auth/realms/sandbox/protocol/openid-connect/auth
+            token-uri: https://api-sandbox.commerzbank.com/auth/realms/sandbox/protocol/openid-connect/token

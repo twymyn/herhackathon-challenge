@@ -1,0 +1,540 @@
+{
+  "securitiesAccountId": "100123456711",
+  "creationDay": "2019-11-18",
+  "effectiveDay": "2018-11-28",
+  "positions": [
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_001_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "CH0038863350",
+        "name": "Nestlé",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "CHF",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 30,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 104.16,
+        "unit": "CHF",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 0.91,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 84.36,
+        "unit": "CHF",
+        "initialExchangeRate": 0.92
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_002_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "CH0012221716",
+        "name": "ABB",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "CHF",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 47,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 21.9,
+        "unit": "CHF",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 0.91,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 19.79,
+        "unit": "CHF",
+        "initialExchangeRate": 0.92
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_003_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "CH0012138530",
+        "name": "Credit Suisse AG",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "CHF",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 71,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 12.92,
+        "unit": "CHF",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 0.91,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 11.79,
+        "unit": "CHF",
+        "initialExchangeRate": 0.92
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_004_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "CH0010645932",
+        "name": "Givaudan",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "CHF",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 25,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 2864,
+        "unit": "CHF",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 0.91,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 2415,
+        "unit": "CHF",
+        "initialExchangeRate": 0.92
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_005_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "CH0126881561",
+        "name": "Swiss Re AG",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "CHF",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 10,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 106.35,
+        "unit": "CHF",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 0.91,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 87.5,
+        "unit": "CHF",
+        "initialExchangeRate": 0.92
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_006_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "DE000A1EWWW0",
+        "name": "adidas",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 45,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 266.15,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 199.15,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_007_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "DE0008404005",
+        "name": "Allianz",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 15,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 266.15,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 184.96,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_008_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "DE0005785802",
+        "name": "Fresenius Medical Care",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 58,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 65.68,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 66.3,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_009_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "DE0007164600",
+        "name": "SAP AG",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 111,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 121.5,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 88.04,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_010_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "AT0000730007",
+        "name": "Andritz",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 44,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 41.02,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 41.88,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_011_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "AT0000743059",
+        "name": "OMV",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 17,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 53.58,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 45.28,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_012_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "AT0000720008",
+        "name": "Telekom Austria",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 120,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 6.98,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 6.23,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    },
+    {
+      "positionId": "100123456711_PORTFOLIO_DE0005190003_013_0000000000000",
+      "securityMasterdata": {
+        "WKN": "",
+        "ISIN": "AT0000831706",
+        "name": "Wienerberger",
+        "notationType": "PIECE",
+        "maturityDate": "2014-01-15+01:00",
+        "currency": "EUR",
+        "vote": "Buy"
+      },
+      "quantity": {
+        "amount": 225,
+        "unit": "Piece"
+      },
+      "currentPrice": {
+        "amount": 25.26,
+        "unit": "EUR",
+        "quoteDate": "2019-11-18+02:00",
+        "exchangeRate": 1,
+        "exchangeRateDate": "2019-11-18+02:00"
+      },
+      "initialPrice": {
+        "amount": 19.19,
+        "unit": "EUR",
+        "initialExchangeRate": 1
+      },
+      "lastTradeDate": null,
+      "payout": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "payedAccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "AccruedInterest": {
+        "amount": 0,
+        "currency": "EUR"
+      }
+    }
+  ]
+}
