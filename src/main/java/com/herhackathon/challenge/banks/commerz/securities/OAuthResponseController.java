@@ -16,7 +16,7 @@ public class OAuthResponseController {
 
     private final BlockingQueue<AuthorizationCode> responses = new SynchronousQueue<>();
 
-    @GetMapping("/login/oauth2/code/commerz")
+    @GetMapping("/login/oauth2/callback/commerz")
     @ResponseBody
     public AuthorizationCode callbackEndpoint(
             @RequestParam("caller") String caller,
