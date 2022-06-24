@@ -1,4 +1,4 @@
-package com.herhackathon.challenge.banks.commerz.securities;
+package com.herhackathon.challenge.banks.commerz.securities.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-class SecurityAccounts {
+public class SecurityAccounts {
     @JsonProperty("securityAccountIDs")
     private List<AccountId> securityAccountIDs;
 }
