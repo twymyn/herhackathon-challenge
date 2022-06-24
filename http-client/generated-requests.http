@@ -1,6 +1,10 @@
 ###
 
-GET {{baseUrl}}/login/oauth2/code/commerz
+GET {{baseUrl}}/login/oauth2/callback/commerz
+
+###
+
+GET {{baseUrl}}/banks
 
 ###
 

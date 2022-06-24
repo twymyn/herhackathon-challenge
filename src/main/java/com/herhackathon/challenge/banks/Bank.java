@@ -1,5 +1,11 @@
 package com.herhackathon.challenge.banks;
 
 public enum Bank {
-    COMMERZ, CITI, SANTANDER
+    COMMERZ("Commerzbank"), CITI("citi"), SANTANDER("Santander");
+
+    public final String fullName;
+
+    Bank(String fullName) {
+        this.fullName = fullName;
+    }
 }

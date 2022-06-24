@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,9 +22,10 @@ public class BankController {
     private final BankProperties bankProperties;
 
     @GetMapping("/banks")
-    public ResponseEntity getAllSupportedBanks() {
+    public ResponseEntity<List<String>> getAllSupportedBanks() {
         try {
-            return ResponseEntity.ok(Bank.values());
+            List<String> banks = Arrays.stream(Bank.values()).map(bank -> bank.fullName).collect(Collectors.toList());
+            return ResponseEntity.ok(banks);
         } catch (Exception e) {
             log.info("error", e);
             return ResponseEntity.internalServerError().build();
@@ -29,10 +33,10 @@ public class BankController {
     }
 
     @GetMapping("/banks/{bank}/login")
-    public ResponseEntity getBankLoginUri(@PathVariable("bank") Bank bank) {
+    public ResponseEntity<String> getBankLoginUri(@PathVariable("bank") Bank bank) {
         try {
             URL loginUrl = bankProperties.getLoginUrl(bank);
-            return ResponseEntity.ok(loginUrl);
+            return ResponseEntity.ok(loginUrl.toString());
         } catch (Exception e) {
             log.info("error", e);
             return ResponseEntity.internalServerError().build();
