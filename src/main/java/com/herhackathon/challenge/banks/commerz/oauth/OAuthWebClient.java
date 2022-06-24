@@ -1,9 +1,11 @@
 package com.herhackathon.challenge.banks.commerz.oauth;
 
-import com.herhackathon.challenge.banks.commerz.CommerzApiProperties;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -14,9 +16,16 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class OAuthWebClient {
 
     private final WebClient.Builder webClientBuilder;
-    private final CommerzApiProperties commerzApiProperties;
 
     private final CommerzOAuthProperties commerzOAuthProperties;
+
+    @Getter
+    @Setter
+    private OAuthResponse oAuthResponse;
+
+    public String getAccessToken() {
+        return oAuthResponse != null ? oAuthResponse.getAccessToken() : null;
+    }
 
     /**
      * Request a new access token based on the refresh token.
@@ -25,7 +34,7 @@ public class OAuthWebClient {
      * @return OAuth response with a refreshed access token.
      */
     public OAuthResponse refreshAccessToken(String refreshToken) {
-        return requestAccessToken(null, refreshToken, GrantType.REFRESH_TOKEN, null);
+        return requestAccessToken(null, refreshToken, AuthorizationGrantType.REFRESH_TOKEN, null);
     }
 
     /**
@@ -36,7 +45,7 @@ public class OAuthWebClient {
      * @return OAuth response with a access token.
      */
     OAuthResponse requestAccessTokenWithAuthCode(String code, String redirectUri) {
-        return requestAccessToken(code, null, GrantType.AUTHORIZATION_CODE, redirectUri);
+        return requestAccessToken(code, null, AuthorizationGrantType.AUTHORIZATION_CODE, redirectUri);
     }
 
 
@@ -46,10 +55,10 @@ public class OAuthWebClient {
      * @return OAuth response with a access token.
      */
     public OAuthResponse requestAccessTokenWithClientCredentials() {
-        return requestAccessToken(null, null, GrantType.CLIENT_CREDENTIALS, null);
+        return requestAccessToken(null, null, AuthorizationGrantType.CLIENT_CREDENTIALS, null);
     }
 
-    private OAuthResponse requestAccessToken(String code, String refreshToken, GrantType grantType, String redirectUri) {
+    private OAuthResponse requestAccessToken(String code, String refreshToken, AuthorizationGrantType grantType, String redirectUri) {
         WebClient client = webClientBuilder
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
@@ -63,10 +72,10 @@ public class OAuthWebClient {
                 .block();
     }
 
-    private BodyInserters.FormInserter<String> createBody(String code, String refreshToken, GrantType grantType, String redirectUri) {
+    private BodyInserters.FormInserter<String> createBody(String code, String refreshToken, AuthorizationGrantType grantType, String redirectUri) {
 
         BodyInserters.FormInserter<String> body = BodyInserters
-                .fromFormData("grant_type", grantType.getParameterValue())  // Set form data grant_type
+                .fromFormData("grant_type", grantType.getValue())  // Set form data grant_type
                 .with("client_id", commerzOAuthProperties.getClientId())             // Set form data client_id
                 .with("client_secret", commerzOAuthProperties.getClientSecret());          // Set form data client_secret
 

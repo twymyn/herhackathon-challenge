@@ -1,5 +1,7 @@
 package com.herhackathon.challenge.banks.commerz.securities;
 
+import com.herhackathon.challenge.banks.commerz.securities.dto.Assets;
+import com.herhackathon.challenge.banks.commerz.securities.dto.SecurityAccounts;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +28,11 @@ public class SecuritiesController {
 
     @GetMapping("/assets")
     @ResponseBody
-    public ResponseEntity<List<String>> getAllAssets() {
+    public ResponseEntity<List<Assets>> getAllAssets() {
         SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts();
 
-        List<String> allAssets = allAccounts.getSecurityAccountIDs().stream().map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
+        List<Assets> allAssets = allAccounts.getSecurityAccountIDs().stream()
+                .map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(allAssets);

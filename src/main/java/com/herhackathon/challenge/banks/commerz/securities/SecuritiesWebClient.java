@@ -1,6 +1,8 @@
 package com.herhackathon.challenge.banks.commerz.securities;
 
 import com.herhackathon.challenge.banks.commerz.CommerzApiProperties;
+import com.herhackathon.challenge.banks.commerz.securities.dto.Assets;
+import com.herhackathon.challenge.banks.commerz.securities.dto.SecurityAccounts;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -32,16 +34,16 @@ public class SecuritiesWebClient {
                 .block();
     }
 
-    String getAssetsFromAccount(String accountId) {
+    Assets getAssetsFromAccount(String accountId) {
         WebClient client = webClientBuilder
                 .baseUrl(commerzApiProperties.getBaseUrl())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
 
         return client.get()
-                .uri(commerzApiProperties.getSecurityAccountsApi() + accountId + commerzApiProperties.getAssetsApi())
+                .uri(commerzApiProperties.getSecurityAccountsApi() + "/" + accountId + commerzApiProperties.getAssetsApi())
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(Assets.class)
                 .block();
     }
 
@@ -59,17 +61,17 @@ public class SecuritiesWebClient {
                 .block();
     }
 
-    public String getAssetsFromAccount(String accessToken, String accountId) {
+    public Assets getAssetsFromAccount(String accessToken, String accountId) {
         WebClient client = webClientBuilder
                 .baseUrl(commerzApiProperties.getBaseUrl())
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
 
         return client.get()
-                .uri(commerzApiProperties.getSecurityAccountsApi() + accountId + commerzApiProperties.getAssetsApi())
+                .uri(commerzApiProperties.getSecurityAccountsApi() + "/" + accountId + commerzApiProperties.getAssetsApi())
                 .headers(headers -> headers.setBearerAuth(accessToken))
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(Assets.class)
                 .block();
     }
 
