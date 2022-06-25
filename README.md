@@ -25,9 +25,9 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Authorization Code Flow
 
-1. Login at Commerzbank Sanbox link provided at [http://localhost:5000/banks/commerz/login](http://localhost:5000/banks/commerz/login](http://localhost:5000/banks/commerz/login)
+1. Login at Commerzbank Sanbox link provided at [localhost:5000/banks/commerz/login](http://localhost:5000/banks/commerz/login)
 2. Callback endpoint should show the retrieved authorization code - this will be used by application to retrieve access token
-3. Get list of security accounts and assets at [http://localhost:5000/assets](http://localhost:5000/assets]
+3. Get list of security accounts and assets at [localhost:5000/assets](http://localhost:5000/assets)
 
 
 ## Deploying to Heroku
