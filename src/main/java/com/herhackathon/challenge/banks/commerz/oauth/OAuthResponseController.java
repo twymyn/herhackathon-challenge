@@ -4,7 +4,6 @@ import com.herhackathon.challenge.banks.Bank;
 import com.herhackathon.challenge.banks.BankProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,12 +34,5 @@ public class OAuthResponseController {
         oAuthWebClient.setOAuthResponse(oAuthResponse);
 
         return authorizationCode;
-    }
-
-    // TODO could be handled better with expiry date or refresh token
-    @Scheduled(cron = "* */5 * * * *")
-    public void resetStoredAccessToken() {
-        log.info("clearing the stored access token");
-        oAuthWebClient.setOAuthResponse(null);
     }
 }
