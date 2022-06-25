@@ -3,7 +3,6 @@ package com.herhackathon.challenge.banks.commerz.securities;
 import com.herhackathon.challenge.banks.commerz.CommerzApiProperties;
 import com.herhackathon.challenge.banks.commerz.securities.dto.Assets;
 import com.herhackathon.challenge.banks.commerz.securities.dto.SecurityAccounts;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,7 @@ public class SecuritiesWebClient {
 
     private final CommerzApiProperties commerzApiProperties;
 
-    public SecuritiesWebClient(@Qualifier("commerzWebClientBuilder") WebClient.Builder webClientBuilder, CommerzApiProperties commerzApiProperties) {
+    public SecuritiesWebClient(WebClient.Builder webClientBuilder, CommerzApiProperties commerzApiProperties) {
         this.webClientBuilder = webClientBuilder;
         this.commerzApiProperties = commerzApiProperties;
     }

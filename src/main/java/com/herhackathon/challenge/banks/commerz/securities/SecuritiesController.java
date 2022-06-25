@@ -1,5 +1,6 @@
 package com.herhackathon.challenge.banks.commerz.securities;
 
+import com.herhackathon.challenge.banks.commerz.oauth.OAuthWebClient;
 import com.herhackathon.challenge.banks.commerz.securities.dto.Assets;
 import com.herhackathon.challenge.banks.commerz.securities.dto.SecurityAccounts;
 import lombok.RequiredArgsConstructor;
@@ -19,22 +20,33 @@ public class SecuritiesController {
 
     private final SecuritiesWebClient securitiesWebClient;
 
+    private final OAuthWebClient oAuthWebClient;
+
     @GetMapping("/securities")
     @ResponseBody
-    public ResponseEntity<SecurityAccounts> getAllSecurities() {
-        SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts();
-        return ResponseEntity.ok(allAccounts);
+    public ResponseEntity getAllSecurities() {
+        try {
+            String accessToken = oAuthWebClient.getAccessToken();
+            SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts(accessToken);
+            return ResponseEntity.ok(allAccounts);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/assets")
     @ResponseBody
-    public ResponseEntity<List<Assets>> getAllAssets() {
-        SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts();
+    public ResponseEntity getAllAssets() {
+        try {
+            SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts(oAuthWebClient.getAccessToken());
 
-        List<Assets> allAssets = allAccounts.getSecurityAccountIDs().stream()
-                .map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
-                .collect(Collectors.toList());
+            List<Assets> allAssets = allAccounts.getSecurityAccountIDs().stream()
+                    .map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
+                    .collect(Collectors.toList());
 
-        return ResponseEntity.ok(allAssets);
+            return ResponseEntity.ok(allAssets);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

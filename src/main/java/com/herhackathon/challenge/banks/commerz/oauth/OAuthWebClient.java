@@ -3,8 +3,10 @@ package com.herhackathon.challenge.banks.commerz.oauth;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -13,6 +15,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class OAuthWebClient {
 
     private final WebClient.Builder webClientBuilder;
@@ -24,7 +27,18 @@ public class OAuthWebClient {
     private OAuthResponse oAuthResponse;
 
     public String getAccessToken() {
-        return oAuthResponse != null ? oAuthResponse.getAccessToken() : null;
+        if (oAuthResponse != null) {
+            return oAuthResponse.getAccessToken();
+        } else {
+            throw new IllegalStateException("No access token found");
+        }
+    }
+
+    // TODO could be handled better with expiry date or refresh token
+    @Scheduled(cron = "0 */30 * * * *")
+    public void resetStoredAccessToken() {
+        log.info("clearing the stored access token");
+        setOAuthResponse(null);
     }
 
     /**
