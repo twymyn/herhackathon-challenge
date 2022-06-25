@@ -3,6 +3,7 @@ package com.herhackathon.challenge.banks;
 import com.herhackathon.challenge.banks.commerz.securities.SecuritiesWebClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,12 +34,15 @@ public class BankController {
     }
 
     @GetMapping("/banks/{bank}/login")
-    public ResponseEntity<String> getBankLoginUri(@PathVariable("bank") Bank bank) {
+    public ResponseEntity<String> getBankLoginUri(@PathVariable("bank") String bankName) {
         try {
+            Bank bank = Bank.findByName(bankName);
             URL loginUrl = bankProperties.getLoginUrl(bank);
-            return ResponseEntity.ok(loginUrl.toString());
+            return ResponseEntity.status(HttpStatus.FOUND)
+                    .location(loginUrl.toURI())
+                    .build();
         } catch (Exception e) {
-            log.info("error", e);
+            log.warn("error", e);
             return ResponseEntity.internalServerError().build();
         }
     }

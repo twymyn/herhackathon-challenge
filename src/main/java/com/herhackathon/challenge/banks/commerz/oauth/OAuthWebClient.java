@@ -2,7 +2,6 @@ package com.herhackathon.challenge.banks.commerz.oauth;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -12,6 +11,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.Calendar;
+import java.util.Date;
 
 @Component
 @RequiredArgsConstructor
@@ -23,8 +25,28 @@ public class OAuthWebClient {
     private final CommerzOAuthProperties commerzOAuthProperties;
 
     @Getter
-    @Setter
     private OAuthResponse oAuthResponse;
+
+    @Getter
+    private Date expiryDate;
+
+    public void setOAuthResponse(OAuthResponse oAuthResponse) {
+        this.oAuthResponse = oAuthResponse;
+        if (oAuthResponse != null) {
+            this.expiryDate = calculateExpiryDate(oAuthResponse.getExpiresIn());
+        }
+    }
+
+    private Date calculateExpiryDate(int expiresInSeconds) {
+        Calendar now = Calendar.getInstance();
+        Date expiryDate = new Date(now.getTimeInMillis() + (expiresInSeconds * 1000));
+        log.info("Received token at {}, expires at {}", now, expiryDate);
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
+    }
 
     public String getAccessToken() {
         if (oAuthResponse != null) {
@@ -36,10 +58,14 @@ public class OAuthWebClient {
 
     // TODO could be handled better with expiry date or refresh token
     // token needs to be stored per session/user
-    @Scheduled(cron = "0 */10 * * * *")
+    @Scheduled(cron = "0 * * * * *")
     public void resetStoredAccessToken() {
-        log.info("clearing the stored access token");
-        setOAuthResponse(null);
+        Calendar now = Calendar.getInstance();
+        if (now.after(getExpiryDate())) {
+            log.info("clearing the stored access token");
+            setOAuthResponse(null);
+            setExpiryDate(null);
+        }
     }
 
     /**
