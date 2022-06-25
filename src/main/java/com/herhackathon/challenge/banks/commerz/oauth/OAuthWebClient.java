@@ -38,8 +38,8 @@ public class OAuthWebClient {
     }
 
     private Date calculateExpiryDate(int expiresInSeconds) {
-        Calendar now = Calendar.getInstance();
-        Date expiryDate = new Date(now.getTimeInMillis() + (expiresInSeconds * 1000));
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + (expiresInSeconds * 1000L));
         log.info("Received token at {}, expires at {}", now, expiryDate);
         return expiryDate;
     }
