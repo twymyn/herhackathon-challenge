@@ -45,7 +45,7 @@ public class CommerzWebClientConfiguration {
 
     @Bean
     @Qualifier("commerzWebClientBuilder")
-    public WebClient.Builder webClientBuilder(ReactiveClientRegistrationRepository clientRegistrations) {
+    public WebClient.Builder commerzWebClientBuilder(ReactiveClientRegistrationRepository clientRegistrations) {
         log.info("Initializing a WebClient.Builder for Commerzbank");
         InMemoryReactiveOAuth2AuthorizedClientService clientService = new InMemoryReactiveOAuth2AuthorizedClientService(clientRegistrations);
 

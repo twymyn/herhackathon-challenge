@@ -35,7 +35,8 @@ public class OAuthWebClient {
     }
 
     // TODO could be handled better with expiry date or refresh token
-    @Scheduled(cron = "0 */30 * * * *")
+    // token needs to be stored per session/user
+    @Scheduled(cron = "0 */10 * * * *")
     public void resetStoredAccessToken() {
         log.info("clearing the stored access token");
         setOAuthResponse(null);

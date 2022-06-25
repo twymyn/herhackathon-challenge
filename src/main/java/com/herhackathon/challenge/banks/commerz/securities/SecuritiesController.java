@@ -2,6 +2,7 @@ package com.herhackathon.challenge.banks.commerz.securities;
 
 import com.herhackathon.challenge.banks.commerz.oauth.OAuthWebClient;
 import com.herhackathon.challenge.banks.commerz.securities.dto.Assets;
+import com.herhackathon.challenge.banks.commerz.securities.dto.Position;
 import com.herhackathon.challenge.banks.commerz.securities.dto.SecurityAccounts;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -42,9 +43,27 @@ public class SecuritiesController {
 
             List<Assets> allAssets = allAccounts.getSecurityAccountIDs().stream()
                     .map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
-                    .collect(Collectors.toList());
+                    .toList();
 
             return ResponseEntity.ok(allAssets);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/assets/positions")
+    @ResponseBody
+    public ResponseEntity getAllPositions() {
+        try {
+            SecurityAccounts allAccounts = securitiesWebClient.getAllAccounts(oAuthWebClient.getAccessToken());
+
+            List<Position> allPositions = allAccounts.getSecurityAccountIDs().stream()
+                    .map(accountId -> securitiesWebClient.getAssetsFromAccount(accountId.getSecurityAccountId()))
+                    .map(Assets::getPositions)
+                    .flatMap(Collection::stream)
+                    .toList();
+
+            return ResponseEntity.ok(allPositions);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
